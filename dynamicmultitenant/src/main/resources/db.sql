@@ -40,3 +40,18 @@ INSERT INTO `master_db`.`tbl_tenant_master` (`tenant_client_id`, `db_name`, `url
 INSERT INTO `testdb`.`tbl_user` (`user_id`, `full_name`, `gender`, `user_name`, `password`, `status`) VALUES (100, 'User 01', 'MALE', 'user01', '111111', 'ACTIVE');
 INSERT INTO `testdb`.`tbl_product` (`product_id`, `product_name`, `quantity`, `size`) VALUES (100, 'Product Name 01', 10, 'M');
 
+
+-- tenant02
+INSERT INTO `master_db`.`tbl_tenant_master` (`tenant_client_id`,`db_name`,`url`,`user_name`,`password`,`driver_class`,`status`) VALUES (101,'testdb2','jdbc:mysql://localhost:3306/testdb2','root','111111', 'com.mysql.cj.jdbc.Driver', 'ACTIVE');
+create database testdb2;
+DROP TABLE IF EXISTS `testdb`.`tbl_user`;
+CREATE TABLE  `testdb2`.`tbl_user` (
+  `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `full_name` varchar(100) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `user_name` varchar(50) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `status` varchar(10) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB;
+INSERT INTO `testdb2`.`tbl_user` (`user_id`, `full_name`, `gender`, `user_name`, `password`, `status`) VALUES (100, 'User 02', 'MALE', 'user02', '111111', 'ACTIVE');
