@@ -60,7 +60,7 @@ public class AuthenticationController implements Serializable {
         //set database parameter
         MasterTenant masterTenant = masterTenantService.findByClientId(userLoginDTO.getTenantOrClientId());
         if(null == masterTenant || masterTenant.getStatus().toUpperCase().equals(UserStatus.INACTIVE)){
-            throw new RuntimeException("Please contact service provider.");
+            throw new RuntimeException("masterTenant not exists");
         }
         //Entry Client Wise value dbName store into bean.
         loadCurrentDatabaseInstance(masterTenant.getDbName(), userLoginDTO.getUserName());

@@ -66,7 +66,10 @@ public class DataSourceBasedMultiTenantConnectionProviderImpl extends AbstractDa
             LOG.warn("Trying to get tenant:" + tenantIdentifier + " which was not found in master db after rescan");
             throw new UsernameNotFoundException(String.format("Tenant not found after rescan, " + " tenant=%s", tenantIdentifier));
         }
-        return this.dataSourcesMtApp.get(tenantIdentifier);
+
+        DataSource dataSource = dataSourcesMtApp.get(tenantIdentifier);
+        LOG.info("selectDataSource(). tenantIdentifier:{}", tenantIdentifier);
+        return dataSource;
     }
 
     private String initializeTenantIfLost(String tenantIdentifier) {

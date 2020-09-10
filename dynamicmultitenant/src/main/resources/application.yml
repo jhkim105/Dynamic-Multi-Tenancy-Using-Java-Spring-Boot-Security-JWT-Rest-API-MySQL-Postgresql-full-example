@@ -15,9 +15,9 @@ multitenancy:
   mtapp:
     master:
       datasource:
-        url: jdbc:mysql://192.168.0.115:3306/master_db?useSSL=false
+        url: jdbc:mysql://localhost:3306/master_db?useSSL=false
         username: root
-        password: test
+        password: 111111
         driverClassName: com.mysql.cj.jdbc.Driver
         connectionTimeout: 20000
         maxPoolSize: 250
